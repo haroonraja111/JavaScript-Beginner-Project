@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <style>
+    section {
+      background-color: lightblue;
+      height: 30vh;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      align-content: center;
+    }
+
+    .row {
+      display: grid;
+      grid-template-columns: 33% 33% 33%;
+      row-gap: 5px;
+      column-gap: 5px;
+    }
+
+    #cell-1,#cell-2,#cell-3,
+    #cell-4,#cell-5,#cell-6,
+    #cell-7,#cell-8,#cell-9 {
+      background-color: #8f6262;
+      width: 5vw;
+      height: 5vh;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      align-content: center;
+      border-radius: 6px;
+      color: #d8a9a9;
+    }
+  </style>
+
+<body>
+  <section style="background-color: #d8a9a9;">
+    <div class="row">
+      <div class="col" id="cell-1"></div>
+      <div class="col" id="cell-2"></div>
+      <div class="col" id="cell-3"></div>
+      <div class="col" id="cell-4"></div>
+      <div class="col" id="cell-5"></div>
+      <div class="col" id="cell-6"></div>
+      <div class="col" id="cell-7"></div>
+      <div class="col" id="cell-8"></div>
+      <div class="col" id="cell-9"></div>
+    </div>
+  </section>
+
+
+</body>
+<script>
+  var currentPlayer = "X";
+
+  for (let i = 1; i <= 9; i++) {
+    document.getElementById("cell-" + i).addEventListener("click", cellClick)
+  }
+  function cellClick(e) {
+    let cell = e.target;
+
+    cell.innerHTML = currentPlayer;
+
+    currentPlayer = (currentPlayer === "X") ? "O" : "X";
+  }
+</script>
+
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form id="myForm" action="php?">
+        Name: <input id="name" type="text"><br>
+        
+        Email: <input id="email" type="email" required><br>
+        <span id="error" style="display: none; color: red;">Name is required</span>
+        password: <input id="password" type="password"><br>
+        <input type="button" value="submit" onclick="validateForm()">
+    </form>
+
+
+    <script>
+       function validateForm() {
+            let name = document.getElementById("name").value;
+            let email = document.getElementById("email").value;
+            let password = document.getElementById("password").value;
+
+            if (name == "") {
+                document.getElementById("name").setCustomValidity("Name is required");
+                document.getElementById("name").style.borderColor = "red";
+            }else{
+                document.getElementById("name").setCustomValidity("");
+                document.getElementById("name").style.borderColor = "green";
+            }
+
+            if(email == ""){
+                document.getElementById("error").style.display = "block";
+                return false;
+            }else{
+                document.getElementById("error").style.display = "none";
+            }
+
+            if (password == "") {
+                alert("password must be filled out")
+                return false;
+            } 
+
+            alert("Form sumbit SucessFully")
+       }
+    </script>
+</body>
+</html>

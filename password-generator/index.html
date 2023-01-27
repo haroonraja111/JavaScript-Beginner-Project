@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form action="">
+        <label for="length">Password Length</label>
+        <input type="number" id="length" name="length" min="8" max="32" value="12">
+        <br>
+        <input type="checkbox" id="uppercase" name="uppercase">
+        <label for="uppercase">Include Uppercase lattera</label>
+        <br>
+        <input type="checkbox" id="lowercase" name="lowercase">
+        <label for="lowercase">Include Numbers</label>
+        <br>
+        <input type="checkbox" id="numbers" name="numbers">
+        <label for="number">Include Numbers</label>
+        <br>
+        <input type="checkbox" id="symbols" name="symbols">
+        <label for="symbols">Include Numbers</label>
+        <br>
+        <button type="button" onclick="generatePassword()">Generate Password</button>
+    </form>
+
+    <div id="password"></div>
+
+    <script>
+        function generatePassword() {
+            let length = document.getElementById("length").value;
+            let includeUpper = document.getElementById("uppercase").checked;
+            let includeLower = document.getElementById("lowercase").checked;
+            let includeNumbers = document.getElementById("numbers").checked;
+            let includeSymbols = document.getElementById("symbols").checked;
+
+            let password = "";
+            let possible = "";
+
+            if (includeUpper) {
+                possible += "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+            }
+
+            if (includeLower) {
+                possible += "abcdefghijklmnopqrstuvwxyz";
+            }
+
+            if (includeNumbers) {
+                possible += "0123456789";
+            }
+
+            if (includeSymbols) {
+                possible += "!@#$%^&*()_+-=[]{};':\"\\|,.<>/?`~";
+            }
+
+            for (let i = 0; i < length; i++) {
+                password += possible.charAt(Math.floor(Math.random() * possible.length));
+                
+            }
+
+            document.getElementById("password").innerHTML = password;
+        }
+    </script>
+</body>
+
+</html>

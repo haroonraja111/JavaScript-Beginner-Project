@@ -1,0 +1,66 @@
+<html>
+
+<head>
+    <title>To-Do List</title>
+</head>
+
+<body>
+    <h1>To-Do List</h1>
+    <form>
+        <input type="text" id="taskInput" placeholder="Enter a task">
+        <button type="button" onclick="addTask()">Add Task</button>
+    </form>
+    <ul style="border: 1px solid red;" id="taskList"></ul>
+    <script>
+        // Initialize an empty array to store tasks
+        let tasks = [];
+
+        function addTask() {
+            // Get the task input value
+            let task = document.getElementById("taskInput").value;
+
+            // Add the task to the tasks array
+            tasks.push(task);
+
+            // Clear the task input field
+            document.getElementById("taskInput").value = "";
+
+            // Update the task list
+            updateTaskList();
+        }
+
+        function updateTaskList() {
+            // Get the task list element
+            let taskList = document.getElementById("taskList");
+
+            // Clear the current task list
+            taskList.innerHTML = "";
+
+            // Iterate through the tasks array and add each task as a list item
+            for (let i = 0; i < tasks.length; i++) {
+                let task = tasks[i];
+                taskList.innerHTML += "<li>" + task + 
+                    " <button onclick='removeTask(" + i + ")'>Remove</button> <button onclick='checkTask(" + i + ")'>Check</button></li>";
+            }
+        }
+
+        function removeTask(index) {
+            // Remove the task from the tasks array
+            tasks.splice(index, 1);
+
+            // Update the task list
+            updateTaskList();
+        }
+
+        function checkTask(index) {
+            // Get the task list element
+            let taskList = document.getElementById("taskList");
+            // Get the specific task element
+            let task = taskList.childNodes[index];
+            // toggle the class "checked"
+            task.classList.toggle("checked");
+        }
+    </script>
+</body>
+
+</html>

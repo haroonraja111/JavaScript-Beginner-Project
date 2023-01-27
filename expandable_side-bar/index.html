@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">    
+    <title>Document</title>
+</head>
+
+<body>
+    <form class="search-container">
+        <input type="text" placeholder="search">
+        <!-- <input type="submit" value="Go"> -->
+    </form>
+</body>
+<script>
+    const searchContainer = document.querySelector('.search-container');
+    const searchInput = searchContainer.querySelector('input[type="text"]');
+
+    searchInput.addEventListener('focus', () => {
+        searchContainer.classList.add('expanded');
+    });
+
+    searchInput.addEventListener('blur', () => {
+        searchContainer.classList.remove('expanded');
+    });
+</script>
+
+</html>

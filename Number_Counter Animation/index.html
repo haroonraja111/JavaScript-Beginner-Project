@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    /* I'm too lazy to write CSS 🐌 ... other than that Bootstrap has nothing to do with this example.  */
+    body {
+        background-color: rgb(230, 215, 215);
+    }
+</style>
+
+<body>
+    <div class="container py-5 text-white">
+        <div class="row justify-content-center text-center">
+            <div class="col-12">
+                <h1 class="pb-3 h5">Number counter animation <br> in pure JavaScript <br> (requestAnimationFrame) </h1>
+            </div>
+            <div class="col-md-3">
+                <span id="count1" class="display-4"></span>
+            </div>
+            <div class="col-md-3">
+                <span id="count2" class="display-4"></span>
+            </div>
+            <div class="col-md-3">
+                <span id="count3" class="display-4"></span>
+            </div>
+            <div class="col-md-3">
+                <span id="count4" class="display-4"></span>
+            </div>
+        </div>
+    </div>
+</body>
+
+<script>
+    let countAnim = (qSelector , start = 0 , end, duration = 1000) =>{
+        let target = document.querySelector(qSelector);
+        let startTimestamp = null;
+        let step = (timestap) => {
+            if (!startTimestamp) startTimestamp = timestap;    
+            const progress = Math.min((timestap - startTimestamp) / duration, 1)
+            target.innerText = Math.floor(progress * (end - start) + start);
+
+            if (progress < 1) {
+                window.requestAnimationFrame(step);
+            }
+        };
+        window.requestAnimationFrame(step);
+    };
+    document.addEventListener("DOMContentLoaded" , () => {
+        countAnim("#count1" , 10 , 300 , 1000);
+        countAnim("#count2" , 5000 , 250 , 1500);
+        countAnim("#count3" , -100 , -150 , 2000);
+        countAnim("#count4" , 500 , -100 , 2500);
+    })
+
+
+</script>
+</html>

@@ -1,0 +1,85 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Rubik', sans-serif;
+}
+body{
+    width: 100%;
+    height: 100vh;
+    background-color: rgb(249, 239, 243);
+    margin: auto;
+    display: flex;
+    flex-direction: row;
+    /* text-align: center; */
+    justify-content: center;
+    flex-wrap: wrap;
+    align-content: center;
+}
+.container{
+    width: 375px;
+    height: 520px;
+    /* border: 1px solid red; */
+    background-color: #67806b;
+    border-radius: 15px;
+    box-shadow: 0px 19px 43px -3px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    overflow-y: scroll;
+}
+.container::-webkit-scrollbar{
+    display: none;
+}
+.container form{
+    position: fixed;
+    width: 20%;
+    border: 1px solid rgb(14 74 29);;
+    border-radius: 4px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    /* padding: 10px; */
+}
+.container form input{
+    border: none;
+    outline: none;
+    box-shadow: none;
+    background: none;
+    width: 100%;
+    font-size: 16px;
+    font-weight: 600;
+    padding: 8px 10px;
+}
+#search-item{
+    color: #000;
+}
+.container form i{
+    padding: 10px;
+}
+.product-list{
+    padding: 39px 0;
+}
+.product{
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    padding-bottom: 15px;
+}
+.product img{
+    width: 70px;
+    height: 70px;
+    object-fit: cover;
+    border-radius: 5px;
+}
+.product .p-detail{
+    padding-left: 15px;
+}
+.product .p-detail h2{
+    font-size: 17px;
+    color: #fff;
+}
+.product .p-detail h3{
+    font-size: 16px;
+    color: #fff;
+}

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="quote-box">
+        <p id="quote"></p>
+        <p id="author"></p>
+    </div>
+    <button onclick="getRandomQuote()">New Quote</button>
+
+    <script>
+        var quotes = [
+            {
+                quote: "The best and most beautiful things in the world cannot be seen or even touched - they must be felt with the heart.",
+                author: "Helen Keller"
+            },
+            {
+                quote: "It does not matter how slowly you go as long as you do not stop.",
+                author: "Confucius"
+            },
+            {
+                quote: "Believe in yourself and all that you are. Know that there is something inside you that is greater than any obstacle.",
+                author: "Christian D. Larson"
+            },
+            {
+                quote: "Happiness is not something ready made. It comes from your own actions.",
+                author: "Dalai Lama"
+            },
+            {
+                quote: "You can't build a reputation on what you are going to do.",
+                author: "Henry Ford"
+            }
+        ];
+
+
+        function getRandomQuote() {
+            let randomIndex = Math.floor(Math.random() * quotes.length)
+            let randomQuote = quotes[randomIndex];
+
+            document.getElementById("quote").innerHTML = randomQuote.quote;
+            document.getElementById("author").innerHTML = randomQuote.author;
+        }
+    </script>
+</body>
+
+</html>
